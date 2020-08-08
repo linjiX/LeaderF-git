@@ -19,6 +19,8 @@ Provide 5 more git related LeaderF commands:
 
 ## Installation
 
+with [vim-plug](https://github.com/junegunn/vim-plug)
+
 ```vim
 Plug 'linjiX/LeaderF-git'
 ```
