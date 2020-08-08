@@ -2,6 +2,8 @@
 
 [LeaderF](https://github.com/Yggdroot/LeaderF) extension for git
 
+![preview image](preview.png)
+
 ## Features
 
 Provide 5 more git related LeaderF commands:
