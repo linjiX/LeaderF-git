@@ -8,16 +8,30 @@
 
 Provide 5 more git related LeaderF commands:
 
-1.  `:LeaderfBranch` (or `:Leaderf branch`)
-    -   Fuzzy finder for all local git branches
-2.  `:LeaderfCommit` (or `:Leaderf commit`)
-    -   Fuzzy finder for all the commits in current git repository
-3.  `:LeaderfBCommit` (or `:Leaderf bcommit`)
-    -   Fuzzy finder for all the commits which affects current file
-4.  `:LeaderfGstatus` (or `:Leaderf gstatus`)
-    -   Fuzzy finder for the files in `git status`
-5.  `:LeaderfGfile` (or `:Leaderf gfile`)
-    -   Fuzzy finder for the files in `git ls-gfiles`,
+```vim
+" Fuzzy finder for all local git branches
+:LeaderfBranch or :Leaderf branch
+```
+
+```vim
+" Fuzzy finder for all the commits in current git repository
+:LeaderfCommit or :Leaderf commit
+```
+
+```vim
+" Fuzzy finder for the commits affect current file
+:LeaderfBCommit or :Leaderf bcommit
+```
+
+```vim
+" Fuzzy finder for the files in 'git status'
+:LeaderfGstatus or :Leaderf gstatus
+```
+
+```vim
+" Fuzzy finder for the files in 'git ls-gfiles'
+:LeaderfGfile or :Leaderf gfile
+```
 
 ## Installation
 
