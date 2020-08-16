@@ -9,18 +9,25 @@
 "                                                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let leaderf#branch#hightlight_def = {
+            \   'Lf_hl_match3': '^\* \w\+',
+            \   'Lf_hl_match4': '^\* \w\+\s\+\zs\w\+\ze',
+            \}
+
 function leaderf#branch#Command(args) abort
-    let l:cmd = 'git branch'
+    let l:arguments = filter(keys(a:args), 'v:val =~# "^-"')
+    let l:cmd = 'git branch ' . join(l:arguments, ' ')
     return leaderf#utility#Command(l:cmd)
 endfunction
 
 function leaderf#branch#Accept(line, args) abort
-    let l:branch = a:line[2:]
+    let l:branch = matchstr(a:line, '^\w\+', 2)
     echo system('git switch ' . l:branch)
 endfunction
 
 function s:Preview(line)
-    let l:commit = split(a:line, ' ')[0]
+    let l:branch = matchstr(a:line, '^\w\+', 2)
+    return leaderf#commit#CommitPreview(l:branch)
 endfunction
 
 function leaderf#branch#Preview(orig_bufnr, orig_cursor, line, args) abort
