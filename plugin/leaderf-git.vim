@@ -48,6 +48,7 @@ let g:Lf_Extensions.gfile = {
 
 let g:Lf_Extensions.gstatus = {
             \   'source': {'command': function('leaderf#gstatus#Command')},
+            \   'arguments': [{'name': ['--untracked-files', '-u'], 'nargs': '?'}],
             \   'format_line': 'leaderf#gstatus#FormatLine',
             \   'accept': 'leaderf#gstatus#Accept',
             \   'preview': 'leaderf#gstatus#Preview',
