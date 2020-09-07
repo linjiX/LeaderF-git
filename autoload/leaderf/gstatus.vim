@@ -21,7 +21,7 @@ endfunction
 function leaderf#gstatus#Command(args) abort
     let l:keys = filter(keys(a:args), 'v:val =~# "^-"')
     let l:arguments = map(l:keys, 'empty(a:args[v:val]) ? v:val : v:val ."=". a:args[v:val][0]')
-    let l:cmd = 'git status -s --untracked-file=no' . join(l:arguments, ' ')
+    let l:cmd = 'git status -s --untracked-files=no ' . join(l:arguments, ' ')
     return leaderf#utility#Command(l:cmd)
 endfunction
 
