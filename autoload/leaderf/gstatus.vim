@@ -18,6 +18,10 @@ function s:ParserLine(line) abort
     return a:line[s:offset :]
 endfunction
 
+function s:ParserStatus(line) abort
+    return a:line[1]
+endfunction
+
 function leaderf#gstatus#Command(args) abort
     let l:keys = filter(keys(a:args), 'v:val =~# "^-"')
     let l:arguments = map(l:keys, 'empty(a:args[v:val]) ? v:val : v:val ."=". a:args[v:val][0]')
@@ -46,7 +50,15 @@ endfunction
 
 function s:Preview(line) abort
     let l:file = s:ParserLine(a:line)
-    let l:bufnr = bufadd(l:file)
+    let l:status = s:ParserStatus(a:line)
+    if l:status ==# '?'
+        let l:bufname = l:file
+    else
+        let l:bufname = tempname()
+        let l:cmds = ['git diff', l:file, '>', l:bufname]
+        call system(join(l:cmds, ' '))
+    endif
+    let l:bufnr = bufadd(l:bufname)
     return [l:bufnr, 0, '']
 endfunction
 
