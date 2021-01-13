@@ -13,7 +13,10 @@ let g:Lf_Extensions = get(g:, 'Lf_Extensions', {})
 
 let g:Lf_Extensions.branch = {
             \   'source': {'command': function('leaderf#branch#Command')},
-            \   'arguments': [{'name': ['-v', '--verbose'], 'nargs': 0}, {'name': ['-vv'], 'nargs': 0}],
+            \   'arguments': [
+            \       {'name': ['-v', '--verbose'], 'nargs': 0},
+            \       {'name': ['-vv'], 'nargs': 0}
+            \   ],
             \   'accept': 'leaderf#branch#Accept',
             \   'preview': 'leaderf#branch#Preview',
             \   'highlights_def': leaderf#branch#hightlight_def,
