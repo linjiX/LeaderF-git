@@ -21,12 +21,12 @@ function leaderf#branch#Command(args) abort
 endfunction
 
 function leaderf#branch#Accept(line, args) abort
-    let l:branch = matchstr(a:line, '^\w\+', 2)
+    let l:branch = matchstr(a:line, '^\S\+', 2)
     echo system('git switch ' . l:branch)
 endfunction
 
 function s:Preview(line)
-    let l:branch = matchstr(a:line, '^\w\+', 2)
+    let l:branch = matchstr(a:line, '^\S\+', 2)
     return leaderf#commit#CommitPreview(l:branch)
 endfunction
 
