@@ -50,7 +50,7 @@ function leaderf#commit#CommitPreview(commit) abort
     if !s:CheckFugitive()
         return
     endif
-    let l:object = fugitive#Open('', 0, '', '', [a:commit])[1:]
+    let l:object = fugitive#Open('', 0, '', a:commit)[1:]
     let l:bufnr = bufadd(l:object)
     return [l:bufnr, 0, '']
 endfunction
