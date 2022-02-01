@@ -14,6 +14,7 @@ let g:Lf_Extensions = get(g:, 'Lf_Extensions', {})
 let g:Lf_Extensions.branch = {
             \   'source': {'command': function('leaderf#branch#Command')},
             \   'arguments': [
+            \       {'name': ['-a', '--all'], 'nargs': 0},
             \       {'name': ['-v', '--verbose'], 'nargs': 0},
             \       {'name': ['-vv'], 'nargs': 0}
             \   ],
